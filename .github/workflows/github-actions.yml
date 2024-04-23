@@ -37,14 +37,14 @@ jobs:
     - name: Use Skopeo Tools Sync Image to Docker Hub
       run: |
         #!/usr/bin/env bash
-        skopeo copy --all docker://docker.io/bitnami/bitnami-shell:10-debian-10-r431 docker://docker.io/134054988docker/bitnami-shell:10-debian-10-r431
-        skopeo copy --all docker://docker.io/bitnami/minio:2022.5.26-debian-10-r0 docker://docker.io/134054988docker/minio:2022.5.26-debian-10-r0
-        skopeo copy --all docker://docker.io/bitnami/mysql:5.7.34-debian-10-r55 docker://docker.io/134054988docker/mysql:5.7.34-debian-10-r55
-        skopeo copy --all docker://docker.io/bitnami/rabbitmq:3.10.2-debian-10-r7 docker://docker.io/134054988docker/rabbitmq:3.10.2-debian-10-r7
-        skopeo copy --all docker://docker.io/library/alpine:3.16 docker://docker.io/134054988docker/alpine:3.16
-        skopeo copy --all docker://docker.io/library/redis:6.2 docker://docker.io/134054988docker/redis:6.2
-        skopeo copy --all docker://docker.io/library/registry:2.7.1 docker://docker.io/134054988docker/registry:2.7.1
-        skopeo copy --all docker://docker.io/library/ubuntu:20.04 docker://docker.io/134054988docker/ubuntu:20.04
+        # skopeo copy --all docker://docker.io/bitnami/bitnami-shell:10-debian-10-r431 docker://docker.io/134054988docker/bitnami-shell:10-debian-10-r431
+        # skopeo copy --all docker://docker.io/bitnami/minio:2022.5.26-debian-10-r0 docker://docker.io/134054988docker/minio:2022.5.26-debian-10-r0
+        # skopeo copy --all docker://docker.io/bitnami/mysql:5.7.34-debian-10-r55 docker://docker.io/134054988docker/mysql:5.7.34-debian-10-r55
+        # skopeo copy --all docker://docker.io/bitnami/rabbitmq:3.10.2-debian-10-r7 docker://docker.io/134054988docker/rabbitmq:3.10.2-debian-10-r7
+        # skopeo copy --all docker://docker.io/library/alpine:3.16 docker://docker.io/134054988docker/alpine:3.16
+        # skopeo copy --all docker://docker.io/library/redis:6.2 docker://docker.io/134054988docker/redis:6.2
+        # skopeo copy --all docker://docker.io/library/registry:2.7.1 docker://docker.io/134054988docker/registry:2.7.1
+        # skopeo copy --all docker://docker.io/library/ubuntu:20.04 docker://docker.io/134054988docker/ubuntu:20.04
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/agent-smith:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/agent-smith:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/blobserve:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/blobserve:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ca-updater:commit-313e75e99d5db6f5ac4eb71ecc25b8807fdd8366 docker://docker.io/134054988docker/ca-updater:commit-313e75e99d5db6f5ac4eb71ecc25b8807fdd8366 
