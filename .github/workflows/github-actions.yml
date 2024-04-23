@@ -1,0 +1,72 @@
+# 1.首先，在workflow文件中定义触发器，例如每次推送到主分支时触发同步操作。
+# 工作流名称
+name: Sync-Images-to-DockerHub-Example
+# 工作流运行时显示名称
+run-name: ${{ github.actor }} is Sync Images to DockerHub.
+# 怎样触发工作流
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# 2.添加一个job来执行同步操作。在workflow文件中，添加一个job 并指定使用的操作系统环境。
+# 工作流程任务（通常含有一个或多个步骤）
+jobs:
+  syncimages:
+    runs-on: ubuntu-latest
+    # 在job中添加步骤来执行同步操作。在上述job中，添加步骤来执行skopeo命令，从registry.k8s.io仓库拉取镜像，并将其推送到docker.io仓库。
+    steps:
+    - name: Checkout Repos
+      uses: actions/checkout@v3
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2.9.1
+    # 设置项目Secrets以提供Docker Hub登录所需的用户名和密码。
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2.2.0
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        logout: false
+    
+    # 使用shell命令批量同步所需的镜像到dockerHub中
+    - name: Use Skopeo Tools Sync Image to Docker Hub
+      run: |
+        #!/usr/bin/env bash
+        skopeo copy --all docker://docker.io/bitnami/bitnami-shell:10-debian-10-r431 docker://docker.io/134054988docker/bitnami-shell:10-debian-10-r431
+        skopeo copy --all docker://docker.io/bitnami/minio:2022.5.26-debian-10-r0 docker://docker.io/134054988docker/minio:2022.5.26-debian-10-r0
+        skopeo copy --all docker://docker.io/bitnami/mysql:5.7.34-debian-10-r55 docker://docker.io/134054988docker/mysql:5.7.34-debian-10-r55
+        skopeo copy --all docker://docker.io/bitnami/rabbitmq:3.10.2-debian-10-r7 docker://docker.io/134054988docker/rabbitmq:3.10.2-debian-10-r7
+        skopeo copy --all docker://docker.io/library/alpine:3.16 docker://docker.io/134054988docker/alpine:3.16
+        skopeo copy --all docker://docker.io/library/redis:6.2 docker://docker.io/134054988docker/redis:6.2
+        skopeo copy --all docker://docker.io/library/registry:2.7.1 docker://docker.io/134054988docker/registry:2.7.1
+        skopeo copy --all docker://docker.io/library/ubuntu:20.04 docker://docker.io/134054988docker/ubuntu:20.04
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/agent-smith:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/agent-smith:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/blobserve:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/blobserve:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ca-updater:commit-313e75e99d5db6f5ac4eb71ecc25b8807fdd8366 docker://docker.io/134054988docker/ca-updater:commit-313e75e99d5db6f5ac4eb71ecc25b8807fdd8366 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/content-service:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/content-service:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/dashboard:commit-bc67ae669ce75f0399862a4c00bd915cbaa3f1c8 docker://docker.io/134054988docker/dashboard:commit-bc67ae669ce75f0399862a4c00bd915cbaa3f1c8 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/db-migrations:commit-3c79f0c68c9e480f0e8daf65c44a484296161786 docker://docker.io/134054988docker/db-migrations:commit-3c79f0c68c9e480f0e8daf65c44a484296161786
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide-metrics:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ide-metrics:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide-proxy:commit-67884f2f11454f66c4337e6fe3ee1d0e7366b11d docker://docker.io/134054988docker/ide-proxy:commit-67884f2f11454f66c4337e6fe3ee1d0e7366b11d 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide-service:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ide-service:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/image-builder-mk3:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/image-builder-mk3:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/installation-telemetry:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/installation-telemetry:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/openvsx-proxy:commit-8aeb5e189120bd0c8a9dce3159f3f960f875b646 docker://docker.io/134054988docker/openvsx-proxy:commit-8aeb5e189120bd0c8a9dce3159f3f960f875b646
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/proxy:commit-9481f766d73b1501706ae4c0b6692e82f58822d6 docker://docker.io/134054988docker/proxy:commit-9481f766d73b1501706ae4c0b6692e82f58822d6 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/public-api-server:commit-3c79f0c68c9e480f0e8daf65c44a484296161786 docker://docker.io/134054988docker/public-api-server:commit-3c79f0c68c9e480f0e8daf65c44a484296161786
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/registry-facade:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/registry-facade:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/seccomp-profile-installer:commit-5d7b9b6cd6b0dd95445ef5f3eef1bc7e8d27845a docker://docker.io/134054988docker/seccomp-profile-installer:commit-5d7b9b6cd6b0dd95445ef5f3eef1bc7e8d27845a
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/server:commit-3c79f0c68c9e480f0e8daf65c44a484296161786 docker://docker.io/134054988docker/server:commit-3c79f0c68c9e480f0e8daf65c44a484296161786 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/service-waiter:commit-3c79f0c68c9e480f0e8daf65c44a484296161786 docker://docker.io/134054988docker/service-waiter:commit-3c79f0c68c9e480f0e8daf65c44a484296161786
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ws-daemon:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ws-daemon:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ws-manager-bridge:commit-3c79f0c68c9e480f0e8daf65c44a484296161786 docker://docker.io/134054988docker/ws-manager-bridge:commit-3c79f0c68c9e480f0e8daf65c44a484296161786
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ws-manager:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ws-manager:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ws-proxy:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ws-proxy:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 
+        skopeo copy --all docker://quay.io/brancz/kube-rbac-proxy:v0.12.0 docker://docker.io/134054988docker/kube-rbac-proxy:v0.12.0 
+
+
