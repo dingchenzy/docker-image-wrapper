@@ -68,6 +68,42 @@ jobs:
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ws-manager:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ws-manager:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ws-proxy:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ws-proxy:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 
         skopeo copy --all docker://quay.io/brancz/kube-rbac-proxy:v0.12.0 docker://docker.io/134054988docker/kube-rbac-proxy:v0.12.0 
-        
+        skopeo copy --all docker://quay.io/brancz/kube-rbac-proxy:v0.12.0 docker://docker.io/134054988docker/kube-rbac-proxy:v0.12.0 
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/agent-smith:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c  docker://docker.io/134054988docker/agent-smith:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/blobserve:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/blobserve:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ca-updater:commit-313e75e99d5db6f5ac4eb71ecc25b8807fdd8366 docker://docker.io/134054988docker/ca-updater:commit-313e75e99d5db6f5ac4eb71ecc25b8807fdd8366
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/content-service:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/content-service:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/dashboard:commit-bc67ae669ce75f0399862a4c00bd915cbaa3f1c8 docker://docker.io/134054988docker/dashboard:commit-bc67ae669ce75f0399862a4c00bd915cbaa3f1c8
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/db-migrations:commit-3c79f0c68c9e480f0e8daf65c44a484296161786 docker://docker.io/134054988docker/db-migrations:commit-3c79f0c68c9e480f0e8daf65c44a484296161786
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/docker-up:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/docker-up:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/clion:commit-95fe93ebea2785da4351f4ea3dcb4133a0f491d4 docker://docker.io/134054988docker/ide/clion:commit-95fe93ebea2785da4351f4ea3dcb4133a0f491d4
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/clion:latest docker://docker.io/134054988docker/ide/clion:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code:commit-ca9338036dd429af37246cb3bfac8062591db66b docker://docker.io/134054988docker/ide/code:commit-ca9338036dd429af37246cb3bfac8062591db66b
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code-desktop:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ide/code-desktop:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code-desktop-insiders:commit-6c883c70ab109a6d259e331e0d72a411b10cfa0 docker://docker.io/134054988docker/ide/code-desktop-insiders:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code:nightly docker://docker.io/134054988docker/ide/code:nightly
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/goland:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/ide/goland:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/goland:latest docker://docker.io/134054988docker/ide/goland:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/intellij:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/ide/intellij:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/intellij:latest docker://docker.io/134054988docker/ide/intellij:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/jb-backend-plugin:commit-b38092639d1783a1957894ddd4f492b3cdc9794a docker://docker.io/134054988docker/ide/jb-backend-plugin:commit-b38092639d1783a1957894ddd4f492b3cdc9794a
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/jb-backend-plugin:latest docker://docker.io/134054988docker/ide/jb-backend-plugin:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide-metrics:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ide-metrics:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/phpstorm:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/ide/phpstorm:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/phpstorm:latest docker://docker.io/134054988docker/ide/phpstorm:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide-proxy:commit-67884f2f11454f66c4337e6fe3ee1d0e7366b11d docker://docker.io/134054988docker/ide-proxy:commit-67884f2f11454f66c4337e6fe3ee1d0e7366b11d
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/pycharm:commit-a901f3bc8f9138f2c40315df771070509c1be05f docker://docker.io/134054988docker/ide/pycharm:commit-a901f3bc8f9138f2c40315df771070509c1be05f
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/pycharm:latest docker://docker.io/134054988docker/ide/pycharm:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/rider:commit-95fe93ebea2785da4351f4ea3dcb4133a0f491d4 docker://docker.io/134054988docker/ide/rider:commit-95fe93ebea2785da4351f4ea3dcb4133a0f491d4
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/rider:latest docker://docker.io/134054988docker/ide/rider:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/rubymine:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/ide/rubymine:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/rubymine:latest docker://docker.io/134054988docker/ide/rubymine:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide-service:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ide-service:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/webstorm:commit-95fe93ebea2785da4351f4ea3dcb4133a0f491d4 docker://docker.io/134054988docker/ide/webstorm:commit-95fe93ebea2785da4351f4ea3dcb4133a0f491d4
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/webstorm:latest docker://docker.io/134054988docker/ide/webstorm:latest
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/image-builder-mk3/bob:6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/image-builder-mk3/bob:6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/image-builder-mk3:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/image-builder-mk3:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/supervisor:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/supervisor:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
+        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/workspacekit:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/workspacekit:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
 
 
