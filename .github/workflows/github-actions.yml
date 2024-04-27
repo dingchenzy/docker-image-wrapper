@@ -78,10 +78,10 @@ jobs:
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/docker-up:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/docker-up:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
         # skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/clion:commit-95fe93ebea2785da4351f4ea3dcb4133a0f491d4 docker://docker.io/134054988docker/ide/clion:commit-95fe93ebea2785da4351f4ea3dcb4133a0f491d4
         # skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/clion:latest docker://docker.io/134054988docker/ide/clion:latest
-        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code:commit-ca9338036dd429af37246cb3bfac8062591db66b docker://docker.io/134054988docker/ide/code:commit-ca9338036dd429af37246cb3bfac8062591db66b
-        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code-desktop:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ide/code-desktop:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
-        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code-desktop-insiders:commit-6c883c70ab109a6d259e331e0d72a411b10cfa0 docker://docker.io/134054988docker/ide/code-desktop-insiders:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
-        skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code:nightly docker://docker.io/134054988docker/ide/code:nightly
+        # skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code:commit-ca9338036dd429af37246cb3bfac8062591db66b docker://docker.io/134054988docker/ide/code:commit-ca9338036dd429af37246cb3bfac8062591db66b
+        # skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code-desktop:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01 docker://docker.io/134054988docker/ide/code-desktop:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        # skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code-desktop-insiders:commit-6c883c70ab109a6d259e331e0d72a411b10cfa0 docker://docker.io/134054988docker/ide/code-desktop-insiders:commit-6c883c70ab109a6d259e331e0d72a411b10cfa01
+        # skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/code:nightly docker://docker.io/134054988docker/ide/code:nightly
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/goland:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/ide/goland:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/goland:latest docker://docker.io/134054988docker/ide/goland:latest
         skopeo copy --all docker://eu.gcr.io/gitpod-core-dev/build/ide/intellij:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c docker://docker.io/134054988docker/ide/intellij:commit-b4fc228990e4325ebf7b3a8079c41ac1437b1d2c
